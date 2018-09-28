@@ -36,6 +36,7 @@ namespace Assignment1.Controllers
         }
 
         // GET: People/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +47,7 @@ namespace Assignment1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "Id,FirstName,LastName,NickName,Gender,DOB,Email")] Person person)
         {
             if (ModelState.IsValid)
@@ -59,6 +61,7 @@ namespace Assignment1.Controllers
         }
 
         // GET: People/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +81,7 @@ namespace Assignment1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,NickName,Gender,DOB,Email")] Person person)
         {
             if (ModelState.IsValid)
@@ -90,6 +94,7 @@ namespace Assignment1.Controllers
         }
 
         // GET: People/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +112,7 @@ namespace Assignment1.Controllers
         // POST: People/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Person person = db.People.Find(id);

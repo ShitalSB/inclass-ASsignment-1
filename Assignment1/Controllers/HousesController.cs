@@ -36,6 +36,7 @@ namespace Assignment1.Controllers
         }
 
         // GET: Houses/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +47,7 @@ namespace Assignment1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "Id,Value,LotSize,Address,City,State,PostalCode")] House house)
         {
             if (ModelState.IsValid)
@@ -59,6 +61,7 @@ namespace Assignment1.Controllers
         }
 
         // GET: Houses/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +81,7 @@ namespace Assignment1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "Id,Value,LotSize,Address,City,State,PostalCode")] House house)
         {
             if (ModelState.IsValid)

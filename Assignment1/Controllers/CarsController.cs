@@ -59,6 +59,7 @@ namespace Assignment1.Controllers
         }
 
         // GET: Cars/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +79,7 @@ namespace Assignment1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "Id,Cost,Year,Make,Model,Color")] Car car)
         {
             if (ModelState.IsValid)
@@ -90,6 +92,7 @@ namespace Assignment1.Controllers
         }
 
         // GET: Cars/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +110,7 @@ namespace Assignment1.Controllers
         // POST: Cars/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Car car = db.Cars.Find(id);
